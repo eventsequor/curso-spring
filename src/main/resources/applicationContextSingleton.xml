@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="
+    http://www.springframework.org/schema/beans
+    http://www.springframework.org/schema/beans/spring-beans-3.1.xsd
+    http://www.springframework.org/schema/context
+    http://www.springframework.org/schema/context/spring-context-3.1.xsd
+">
+    <!--Dependency creation-->
+    <bean id="myReport" class="com.eder.dependency_injection_singleton.Report"/>
+
+    <bean id="mySecretary" class="com.eder.dependency_injection_singleton.SecretaryEmployee" scope="singleton">
+        <!--Set the name equals to the attribute of the object the first letter could be capital-->
+        <property name="newReport" ref="myReport"/>
+    </bean>
+
+    <bean id="mySecretary2" class="com.eder.dependency_injection_singleton.SecretaryEmployee" scope="prototype">
+        <!--Set the name equals to the attribute of the object the first letter could be capital-->
+        <property name="newReport" ref="myReport"/>
+    </bean>
+
+</beans>
