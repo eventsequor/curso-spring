@@ -3,7 +3,7 @@ package com.eder.inversion_of_control;
 
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
-public class UseEmployees {
+public class UseEmployeesMain {
 
     public static void main(String[] args) {
         ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("applicationContext.xml");
