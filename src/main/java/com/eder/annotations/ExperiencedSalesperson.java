@@ -1,18 +1,21 @@
 package com.eder.annotations;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
 //@Component("ExperiencedSalesperson")
 @Component
+@Scope("prototype")
 public class ExperiencedSalesperson implements Employee {
 
-    private final CreationFinancialReport financialReport;
-
+    private CreationFinancialReport financialReport;
+    //@Autowired //This is useful only when we have only one implementation.
+    // however if we have the qualifier annotation then we can choose one specific class
     @Autowired
-    public ExperiencedSalesperson(CreationFinancialReport financialReport) {
-        this.financialReport = financialReport;
-    }
+    @Qualifier("salesReportTrim2")
+    private SalesReport salesReport;
 
     @Override
     public String getTasks() {
@@ -24,4 +27,19 @@ public class ExperiencedSalesperson implements Employee {
         //return "This is a report generate by the salesperson";
         return financialReport.getFinancialReport();
     }
+
+    @Override
+    public String getSalesReport() {
+        return salesReport.getSalesReport();
+    }
+
+    @Autowired
+    public void setFinancialReport(CreationFinancialReport financialReport) {
+        this.financialReport = financialReport;
+    }
+
+    /*@Autowired
+    public void setSalesReport(SalesReport salesReport) {
+        this.salesReport = salesReport;
+    }*/
 }
