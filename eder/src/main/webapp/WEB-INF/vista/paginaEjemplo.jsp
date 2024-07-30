@@ -9,6 +9,6 @@
 <body>
 	<h1>Ojala</h1>
 	<h2>Ahora si, llego el pedido</h2>
-	<a href="showForm">Got to the form</a>
+	<a href="secondary/showForm">Got to the form</a>
 </body>
 </html>
