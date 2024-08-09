@@ -10,5 +10,7 @@
 	<h1>Ojala</h1>
 	<h2>Ahora si, llego el pedido</h2>
 	<a href="secondary/showForm">Got to the form</a>
+	<br/>
+	<a href="student/showForm">Go to study form</a>
 </body>
 </html>
